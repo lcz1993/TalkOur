@@ -2,7 +2,7 @@
 <view class="container">
   <view class="main">
     <view class="top">
-    <image src="../../image/Group15.png"></image>
+    <image src="/static/images/Group15.png"></image>
     </view>
     <view class="center-one" bindtap='radiofun' data-id="{{radioer.id}}">
       <view class="center-one-up clearfix">
@@ -11,10 +11,10 @@
           <text class='center-one-right-num'>94.0</text>
         </view>
       <view class="center-one-middle">
-        <image src="../../image/play2.png"></image>
+        <image src="/static/images/play2.png"></image>
       </view>
-      <view class="center-one-left''">
-      <image class="user" src="{{user}}"></image>
+      <view class="center-one-left">
+      <image class="user" src="{{userImage}}"></image>
       </view>
     </view>
     <view class="center-one-down">
@@ -42,7 +42,7 @@
         </view> -->
       <!-- </view> -->
       <view class="center-three">
-        <block wx:for="{{radio}}" wx:key="index" wx:for-item="item">
+        <block wx:for="{{radioList}}" wx:key="index" wx:for-item="item">
           <view class="radio" bindtap="radiofun" data-id="{{item.id}}">
             <view class="radio-up">
               <view class="radio-up-time">
