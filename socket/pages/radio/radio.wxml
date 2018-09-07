@@ -1,0 +1,102 @@
+<!--pages/radio/radio.wxml-->
+<view class="container">
+  <view class="radio clearfix">
+    <view class="scr">
+      <scroll-view class="chat-container" scroll-y scroll-into-view="{{lastMessageId}}" scroll-top="9999999999" style="">
+        <view wx:for="{{messages}}" wx:for-item="message" wx:key="index" id="{{message.id}}" class="message {{message.type}}" >
+          <view wx:if="{{message.type == 'speak'}}" class="user-message {{message.isMe ? 'me' : 'other'}}" style="margin-left:20rpx">
+            <image class="avatar" src="{{message.user.avatarUrl}}" mode="aspectFill"></image>
+            <view class="text">
+              <view class="nickname">{{message.user.nickname}}</view>
+              <view class="content">{{message.content}}</view>
+
+            </view>
+          </view>
+          <view wx:if="{{message.type == 'audio'}}" class="user-message {{message.isMe ? 'me' : 'other'}}" id="{{index}}" data-time="{{message.content.duration}}" data-src="{{message.content.tempFilePath}}" bindtap='playaudio' style="margin-left:20rpx">
+            <image class="avatar" src="{{message.user.avatarUrl}}" mode="aspectFill"></image>
+            <view class="text">
+              <view class="nickname">{{message.user.nickname}}</view>
+              <view class="content-audio clearfix" style="border: #ccc 1rpx solid;border-radius: 4px;background: #a0e75b;font-size: 36rpx;line-height: 36rpx;padding: 20rpx;position: relative;width:{{(message.content.duration+1)*30}}rpx;">
+                <!-- <image wx:if="{{id==''}}" class="audio-img" src="{{audioimg}}" style="width:36rpx;height:36rpx;float:right;position:absolute; right:0;bottom:25%;"></image>-->
+                <image class="audio-img" src="{{index==aid?aimg:audioimg}}" style="width:36rpx;height:36rpx;float:right;position:absolute; right:0;bottom:25%;"></image>
+                <text style="margin-right:60rpx;background: #a0e75b;">{{message.content.duration}}"</text>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{message.type == 'image'}}" class="user-message {{message.isMe ? 'me' : 'other'}}" 
+          style="margin-left:20rpx;margin-top:30rpx">
+            <image class="avatar" style="margin-top:4%" src="{{message.user.avatarUrl}}" mode="aspectFill"></image>
+            <view class="text clearfix">
+              <view class="nickname">{{message.user.nickname}}</view>
+              <view class="content-image clearfix" style="padding:20rpx;position: relative;height:150rpx;width:195rpx;bottom:10%">
+                <image class="pic-img" src="{{message.content['0']}}" style="width:195rpx;height:200rpx;position:absolute;display:block;right:0;top:0%;"></image>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{message.type == 'system'}}" class='system-message-view'>
+            <view  class="system-message">
+              {{message.content}}
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="center clearfix" hidden="{{status}}" style="height:90rpx">
+      <view class="bottom" hidden="{{status2}}">
+        <view class="part1" wx:if="{{playstatus==1}}" bindtap='audioPause'>
+          <image src="{{playBtn}}" style=""></image>
+        </view>
+        <view class="part1" wx:if="{{playstatus==0}}" bindtap='audioPlay'>
+          <image src="{{playBtn}}" style=""></image>
+        </view>
+        <view class="insert" id=''>
+          <input type="text" value="{{inputContent}}" class="send-input" bindchange="changeInputContent" bindconfirm="sendMessage" placeholder='聊点什么呢' />
+          <!-- <view bindtap="sendMessage" class="send-btn">发送</view> -->
+        </view>
+        <view class="part3" id='' bindtap='recordshow'>
+          <image src="/image/radio.png" style=""></image>
+        </view>
+        <view class="part4" id='' bindtap='getimage'>
+          <image src="../../image/pic.png" style=""></image>
+        </view>
+      </view>
+    </view>
+       <view style="width:100rpx;height:100rpx;position:absolute;top:46%;left:85%;border-radius:50%;z-index:10;position:fixed;background-color:#e4e4e4">
+        <image class="avatar" src="{{uurl}}" mode="aspectFill" style="width:100%;height:100%;"></image>
+       </view>
+      <view style="width:100rpx;position:absolute;top:55%;left:85%;z-index:10;position:fixed;" bindtap='audioPlay'>
+        <button open-type="share" style="width:100rpx;height:100rpx;border-radius:50%;background-color:#e4e4e4">
+          <image class="avatar" src="/image/zhuan.png" style="width:120rpx;height:120rpx;position:absolute;top:-10%;left:-11%"></image>
+        </button>
+        <view style="width:100rpx;height:30rpx;text-align:center">{{relay}}</view>
+      </view>
+      <view style="width:100rpx;position:absolute;top:66%;left:85%;z-index:10;position:fixed;">
+        <view style="width:100rpx;height:100rpx;border-radius:50%;background-color:#e4e4e4" bindtap='addsaygood'>
+          <image class="avatar" src="/image/zan.png" mode="aspectFill" style="width:100%;height:100%;"></image>
+        </view>
+        <view style="width:100rpx;height:30rpx;text-align:center">{{saygood}}</view>
+      </view>
+    <view class="record-box" hidden="{{status1}}">
+      <view class='record-box-view'>
+        <text>按住录音</text>
+        <icon type="clear" class='record-icon' size="20" bindtap='stop' />
+      </view>
+      <view class='radius' bindtouchstart='recorderS' bindtouchend='recorderE'>
+        <image src="../../image/radio.png"></image>
+      </view>
+    </view>
+    <audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop style="display:none"></audio>
+
+    <!--<view class="modal-box" hidden="{{flag}}" bindtap="hide">
+      <view class="modal-title"><text>详情</text></view>
+      <view class="modal-body">
+        <view class="modal-content">
+        <view class="modal-date"><text>2018-5-25</text></view>
+        <view class="modal-time"><text>14:00-15:00</text></view>         
+        <view class="modal-status"><text>大地飞歌</text></view>
+        <view class="modal-new" style="color:{{color}};border:{{border}}"><text>直播</text></view>
+        </view>
+      </view>
+    </view>-->
+  </view>
+</view>

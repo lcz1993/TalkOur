@@ -1,0 +1,231 @@
+/**index.wxss**/
+.clearfix{overflow:hidden;_zoom:1;}
+.main {
+  min-height:1220rpx;
+  background:url(http://sy.tssccm.club/fm940-bg/fm940-bg.png);
+  background-repeat: repeat-y;
+  background-size:100% 100%; 
+}
+.top {
+  margin-left: 60rpx;
+  width: 160rpx;
+  height: 110rpx;
+}
+
+.top image{
+  width: 100%;
+  height: 100%;
+}
+
+.center-one{
+  width: 84%;
+  height:324rpx;
+  margin-left: 60rpx;
+  margin-top: 30rpx;
+  border-radius:15rpx;
+  background-color: #b5ffff;
+}
+.center-one-up{
+  width:100%;
+  height:75%; 
+  padding-top:20rpx;
+}
+.center-one-right{
+ width:35%;
+ margin-left: 20rpx;
+ border-radius:15rpx;
+ background-color: white;
+ font-size: 36rpx;
+ text-align: center;
+ float:left;  
+ padding: 20rpx 0 20rpx 0;
+}
+.center-one-right .center-one-right-fm{
+  font-size:100rpx;
+  font-family:Verdana;
+  letter-spacing:0rpx;
+  line-height: 80rpx;
+}
+.center-one-right .center-one-right-num{
+  font-size:60rpx
+}
+.center-one-middle{
+ width:35%;
+ height:150rpx;
+ float:left; 
+ position: relative;
+}
+.center-one-middle image{
+ position: absolute;
+ width: 110rpx;
+ height: 110rpx;
+ top: 50rpx;
+ left: 80rpx;
+}
+.center-one-left{
+ width:120rpx;
+ height:120rpx;
+ margin-left:30rpx;
+ margin-top:20rpx;
+ float:left;
+ border-radius:50px;
+}
+.user{
+ width:120rpx;
+ height:120rpx;
+ border-radius:50px;
+}
+.center-one-down{
+  width:100%;
+  height:25%;
+  padding-left: 20rpx;
+}
+.center-item{
+ width:25%;
+ height:50rpx;
+ margin-left: 10rpx;
+ font-size: 16px;
+ float:left;  
+}
+.center-item image{
+ float:left; 
+ width:50rpx;
+ height:50rpx;
+ border-radius:50px;  
+}
+.center-item-text{
+float:left;
+width:100rpx;
+line-height:50rpx;
+padding-left:9rpx;
+}
+
+
+.center-two-before{
+width:20%;
+height:80rpx;
+margin-top:40rpx;
+float: left;
+text-align:center;
+line-height: 80rpx;
+font-size: 15px;
+font-weight: 500;
+background-color: white;
+border-radius: 20px;  
+}
+.center-two-middle{
+width:90%;
+height:80rpx;
+margin-left: 20rpx;
+margin-top:40rpx;
+float: left;
+text-align:center;
+line-height: 80rpx;
+font-size: 15px;
+border-radius: 15rpx; 
+background-color: white;  
+}
+.center-two-after{
+width:20%;
+height:80rpx;
+margin-left:20rpx;
+margin-top:40rpx;
+float: left;
+text-align:center;
+line-height: 80rpx;
+font-size: 15px;
+font-weight: 500;
+background-color: white;
+border-radius: 20px;  
+}
+
+.radio{
+  margin-top: 50rpx;
+  width:45%;
+  height:160rpx;
+  background-color: white;
+  float:left; 
+  border-radius: 15rpx;
+}
+.radio:nth-child(even){
+ margin-left: 50rpx;
+}
+.radio-up{
+width:100%;
+height:60%;
+padding-left: 15rpx;
+}
+.radio-up-time{
+height:50rpx;
+width: 90rpx; 
+font-size: 25rpx;
+margin-top:20rpx;
+float:left; 
+}
+.radio-up-line{
+ height:62rpx;
+ width: 5rpx;
+ margin-top:18rpx;
+ float:left; 
+ border-right:3rpx solid black;
+}
+.radio-up-name{
+  height:65rpx;
+  width: 160rpx;
+  font-size: 20rpx;
+  margin-top:20rpx;
+  
+  float:left;
+ margin-left: 5rpx;  
+}
+.radio-up-name text{
+  font-size: 26rpx;
+  margin-left:5rpx;
+}
+.radio-down{
+width:80%;
+height:35%;
+margin-left:10%;
+text-align:center;
+font-size: 15px;
+line-height: 50rpx;
+}
+.radio-down-img{
+height:50rpx;
+width: 50rpx;
+border-radius: 50px;
+margin-right:10rpx;
+float:left;
+}
+.bottom{
+width:84%;
+margin-left:60rpx;
+}
+.bottom-background{
+  width:84%;
+  font-size: 340rpx;
+  font-weight: 900;
+  text-indent: 5rpx;
+  letter-spacing: 20rpx;
+  position:absolute;
+  float:left;
+  top:465rpx;
+  z-index: 10;
+}
+.center-two{
+width: 100%;
+position:relative;
+z-index: 20; 
+}
+.center-three{
+width:100%;
+margin-bottom:100rpx;
+position:relative;
+z-index: 20;   
+}
+.btn{
+width:100%;
+height:200rpx;
+background-color: white;
+line-height: 200rpx;
+}

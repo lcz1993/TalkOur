@@ -1,0 +1,9 @@
+
+<view class='warp'>
+    <view class="wait"> 
+      <image src="../../image/logo.png"></image>
+      <!-- <text>\n\n\n需要你的授权才能使用</text> -->
+      
+    </view>
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfoFun" class="but">立即授权</button> 
+</view>

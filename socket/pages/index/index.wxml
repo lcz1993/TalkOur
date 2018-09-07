@@ -1,0 +1,67 @@
+
+<view class="container">
+  <view class="main">
+    <view class="top">
+    <image src="../../image/Group15.png"></image>
+    </view>
+    <view class="center-one" bindtap='radiofun' data-id="{{radioer.id}}">
+      <view class="center-one-up clearfix">
+        <view class="center-one-right">
+          <text class='center-one-right-fm'>F M\n</text>
+          <text class='center-one-right-num'>94.0</text>
+        </view>
+      <view class="center-one-middle">
+        <image src="../../image/play2.png"></image>
+      </view>
+      <view class="center-one-left''">
+      <image class="user" src="{{user}}"></image>
+      </view>
+    </view>
+    <view class="center-one-down">
+      <view class="center-item" data-id="{{radioer.id}}">
+        <image src="{{radioer.avatarurl}}"></image>
+        <view class="center-item-text">
+          <text>{{radioer.play_name}}</text>
+        </view>
+      </view>
+    </view>
+    </view>
+    <view class="bottom">
+      <!-- <view class="bottom-background">
+        <text>F M \n940</text>
+      </view> -->
+      <!-- <view class="center-two"> -->
+        <!-- <view class="center-two-before">
+          <text>昨天</text>
+        </view> -->
+        <!-- <view class="center-two-middle">
+          <text>播放列表PLAYLIST</text>
+        </view> -->
+        <!-- <view class="center-two-after">
+        <text>明天</text>
+        </view> -->
+      <!-- </view> -->
+      <view class="center-three">
+        <block wx:for="{{radio}}" wx:key="index" wx:for-item="item">
+          <view class="radio" bindtap="radiofun" data-id="{{item.id}}">
+            <view class="radio-up">
+              <view class="radio-up-time">
+                {{item.start_time}}\n
+                {{item.end_time}}
+              </view>
+              <view class="radio-up-line"></view>
+              <view class="radio-up-name">
+                <text>{{item.rad_name}}</text>
+              </view>
+            </view>
+            <view class="radio-down">
+              <image class="radio-down-img" src="{{item.avatarurl}}"></image>
+              <text>主播: {{item.play_name}}</text>
+            </view>
+          </view>
+        </block>
+        <view style='clear:both;'></view>
+      </view>
+    </view>  
+  </view>
+</view>
